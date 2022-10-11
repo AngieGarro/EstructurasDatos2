@@ -196,6 +196,12 @@ bool ABB::ArbCompleto()
 	return false;
 }
 
+int ABB::NivelNodos()
+{
+	return 0;
+}
+
+
 //IMPLEMENTACIONES PV:
 
 bool ABB::agregar(int _dato, nodoA*& A)
@@ -519,7 +525,7 @@ int ABB::sumatoria(nodoA* A)
 	}
 }
 
-//Determinar si un árbol está lleno.
+//Determinar si un árbol está lleno. terminar lógica
 bool ABB::ArbLleno(nodoA* A)
 {
 	if (A == NULL)
@@ -548,6 +554,13 @@ bool ABB::ArbCompleto(nodoA* A)
 
 	return false;
 }
+//Muestra los Nodos por nivel.
+int ABB::NivelNodos(int, nodoA*)
+{
+	return 0;
+}
+
+//Poda el arbol, eliminando todas las hojas del arbol.
 
 
 

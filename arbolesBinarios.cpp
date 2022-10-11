@@ -5,9 +5,10 @@
 #include <stdlib.h>
 using namespace std;
 #include "ABB.h"
+#include "dosABB.h"
 
 
-
+//SUB-MENUS
 void agregarDato(ABB *& A) {
     cout << "Agregando un nuevo dato al arbol "<< endl;
     cout << "Digite el valor ";
@@ -36,7 +37,7 @@ void menu() {
     do {
         system("cls");
         cout << "OPERACIONES ARBOLES BINARIOS DE BUSQUEDA!\n";
-
+        cout << "______________________________________________________ \n";
         cout << "(1) Agregar dato al arbol \n";
         cout << "(2) Remover dato del arbol \n";
         cout << "(3) Recorrido en preorden \n";
@@ -56,9 +57,13 @@ void menu() {
         cout << "(17) Ver la altura del arbol \n";
         cout << "(18) Cantidad de nodos internos \n";
         cout << "(19) Suma de hojas pares \n";
-        cout << "--OPERACIONES DE TAREA 1-- \n";
+        cout << "______________________________________________________ \n";
+        cout << "-------------OPERACIONES DE TAREA 1------------------- \n";
         cout << "(22) Sumar todos los valores de los nodos \n";
         cout << "(23) El arbol, es un |arbol lleno|? \n";
+        cout << "(24) El arbol, es un |arbol Completo|? \n";
+        cout << "(25) Visualizar todos los nodos de un nivel \n";
+        cout << "(26) Podar Arbol \n";
         cout << "(0) Salir del menu \n";
         cout << endl;
         cout << "Ingrese su opcion->";
@@ -168,9 +173,19 @@ void menu() {
             cout << "La suma es:" << A->SumaHojasPares();
             break;
         }
+        //OPERACIONES DE LA TAREA
         case 22: {
             cout << "Suma de valores..." << endl;
             cout << "La suma de los valores es:" << A->sumatoria();
+            break;
+        }
+        case 23: {
+            if (A->ArbLleno()) {
+                cout << "VERDADERO" << endl;
+            }
+            else {
+                cout << "FALSO" << endl;
+            }
             break;
         }
         case 24: {
@@ -180,6 +195,16 @@ void menu() {
             else {
                 cout << "FALSO" << endl;
             }
+            break;
+        }
+        case 25: {
+            cout << "Ver nodos por niveles..." << endl;
+            cout << "Los nodos del nivel son:" << A->sumatoria();
+            break;
+        }
+        case 26: {
+            cout << "Podar arbol..." << endl;
+            A->sumatoria();
             break;
         }
 }

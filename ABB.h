@@ -39,6 +39,7 @@ private:
 	int sumatoria(nodoA*);
 	bool ArbLleno(nodoA*);
 	bool ArbCompleto(nodoA*);
+	int NivelNodos(int, nodoA*);
 
 
 public:
@@ -77,5 +78,7 @@ public:
 	int sumatoria();
 	bool ArbLleno();
 	bool ArbCompleto();
+	int NivelNodos();
+
 };
 

@@ -1,5 +1,6 @@
 #include "dosABB.h"
 #include "nodoA.h"
+#include "ABB.h"
 
 bool dosABB::identicos(nodoA* pA, nodoA* pB)
 {

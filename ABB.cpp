@@ -525,7 +525,7 @@ int ABB::sumatoria(nodoA* A)
 	}
 }
 
-//Determinar si un árbol está lleno. terminar lógica
+//Determinar si un árbol está lleno. 
 bool ABB::ArbLleno(nodoA* A)
 {
 	if (A == NULL)
@@ -541,18 +541,21 @@ bool ABB::ArbLleno(nodoA* A)
 }
 
 //Determinar si un árbol es completo.
-bool ABB::ArbCompleto(nodoA* A)
+bool ABB::ArbCompleto(nodoA* A, int p,int n)
 {
-	if (A == NULL)
+	if (A == nullptr) {
 		return true;
+	}
 
-	if (A->getIzq() == NULL && A->getDer() == NULL)
-		return true;
+	if ((A->getIzq() && 2 * p + 1 >= n) || !ArbCompleto(A->getIzq(), 2 * p + 1, n)) {
+		return false;
+	}
 
-	if ((A->getIzq()) && (A->getDer()))
-		return (ArbCompleto(A->getIzq()) && ArbCompleto(A->getDer()));
+	if ((A->getDer() && 2 * p + 2 >= n) || !ArbCompleto(A->getDer(), 2 * p + 2, n)) {
+		return false;
+	}
 
-	return false;
+	return true;
 }
 //Muestra los Nodos por nivel.
 int ABB::NivelNodos(int, nodoA*)

@@ -38,7 +38,7 @@ private:
 	//Operaciones Tarea 1.
 	int sumatoria(nodoA*);
 	bool ArbLleno(nodoA*);
-	bool ArbCompleto(nodoA*);
+	bool ArbCompleto(nodoA*, int,int);
 	int NivelNodos(int, nodoA*);
 
 

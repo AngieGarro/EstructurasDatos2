@@ -75,17 +75,17 @@ void dosABB::setB(nodoA* _ptr)
 
 bool dosABB::identicos()
 {
-    return identicos(A->getRaiz(), B->getRaiz());
+    //return identicos(A->getRaiz(), B->getRaiz());
 }
 
 bool dosABB::espejo()
 {
-    return espejo(A->getRaiz(), B->getRaiz());
+   // return espejo(A->getRaiz(), B->getRaiz());
 }
 
 void dosABB::copiar()
 {
-    copiar(A->getRaiz(), B->getRaiz());
+   // copiar(A->getRaiz(), B->getRaiz());
 }
 
 void dosABB::copiarEspejo()

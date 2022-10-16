@@ -189,7 +189,7 @@ void menu() {
             break;
         }
         case 24: {
-            if (A->ArbCompleto()) {
+            if (A->ArbLleno()) {
                 cout << "VERDADERO" << endl;
             }
             else {

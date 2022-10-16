@@ -186,12 +186,12 @@ int ABB::sumatoria()
 
 bool ABB::ArbLleno()
 {
-	return false;
+	return ArbLleno(getRaiz());
 }
 
-bool ABB::ArbCompleto()
+bool ABB::ArbCompleto(int p,int n)
 {
-	return false;
+	return ArbCompleto(getRaiz(),p,n);
 }
 
 int ABB::NivelNodos()

@@ -194,10 +194,20 @@ bool ABB::ArbCompleto(int p,int n)
 	return ArbCompleto(getRaiz(),p,n);
 }
 
-int ABB::NivelNodos()
+int ABB::NivelNodos(int nivel)
 {
-	return 0;
+	return NivelNodos(getRaiz(),nivel);
 }
+
+void ABB::VerNivelNodos(int N)
+{
+	return VerNivelNodos(getRaiz(), N);
+}
+
+void ABB::PodarArbol()
+{
+}
+
 
 
 //IMPLEMENTACIONES PV:
@@ -555,13 +565,54 @@ bool ABB::ArbCompleto(nodoA* A, int p,int n)
 
 	return true;
 }
-//Muestra los Nodos por nivel.
-int ABB::NivelNodos(int, nodoA*)
+//Muestra la cantidad de Nodos por nivel.
+int ABB::NivelNodos(nodoA* A, int N)
 {
+	if (A != NULL) {
+		if (N == 0) {
+			return NivelNodos(A->getIzq(), N - 1) + NivelNodos(A->getDer(), N - 1) + 1;
+			return NivelNodos(A->getIzq(), N - 1) + NivelNodos(A->getDer(), N - 1);
+		}
+	}
 	return 0;
 }
-
+//Muestra los Nodos por nivel.
+void ABB::VerNivelNodos(nodoA* A, int N)
+{
+	if (A != NULL) {
+		if (N == 0) {
+			cout << A->getDato() << " - ";
+			VerNivelNodos(A->getIzq(), N - 1);
+			VerNivelNodos(A->getDer(), N - 1);
+		}
+	}
+}
 //Poda el arbol, eliminando todas las hojas del arbol.
+//COMPLETAR IMPLEMENTACIÓN
+void ABB::PodarArbol(nodoA* A)
+{
+	while (A != NULL)
+	{
+		if (EsHoja(A) < A->getDato())
+			if (A->getIzq()->getDato() == EsHoja(A))
+			{
+				A->getIzq() = NULL;
+				break;
+			}
+			else
+				A = A->getIzq();
+		else
+			if (A->getDer()->getDato() == EsHoja(A))
+			{
+				A->getDer() = NULL;
+				break;
+			}
+			else
+				A = A->getDer();
+	}//fin while
+}
+
+
 
 
 

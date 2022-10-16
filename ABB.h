@@ -39,7 +39,10 @@ private:
 	int sumatoria(nodoA*);
 	bool ArbLleno(nodoA*);
 	bool ArbCompleto(nodoA*,int,int);
-	int NivelNodos(int, nodoA*);
+	int NivelNodos(nodoA*,int);
+	void VerNivelNodos(nodoA*, int);
+	void PodarArbol(nodoA*);
+
 
 
 public:
@@ -78,7 +81,9 @@ public:
 	int sumatoria();
 	bool ArbLleno();
 	bool ArbCompleto(int,int);
-	int NivelNodos();
+	int NivelNodos(int);
+	void VerNivelNodos(int);
+	void PodarArbol();
 
 };
 

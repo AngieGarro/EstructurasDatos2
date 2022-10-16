@@ -31,6 +31,10 @@ void removerDato(ABB*& A) {
         cout << dato << " no existe en el arbol." << endl;
 }
 
+void VerNivel(ABB* A) {
+    
+};
+
 void menu() {
     int opc = 0;
     ABB* A = new ABB();
@@ -198,13 +202,18 @@ void menu() {
             break;
         }
         case 25: {
-            cout << "Ver nodos por niveles..." << endl;
-            cout << "Los nodos del nivel son:" << A->sumatoria();
+            cout << "Ver los datos del nivel del arbol " << endl;
+            cout << "Digite el nivel: ";
+            int nivel;
+            cin >> nivel;
+            cout << "Los valores del " << nivel << " del arbol son:" << endl;
+            A->VerNivelNodos(nivel);
             break;
         }
         case 26: {
             cout << "Podar arbol..." << endl;
-            A->sumatoria();
+            A->PodarArbol(A);
+            A->enorden();
             break;
         }
 }

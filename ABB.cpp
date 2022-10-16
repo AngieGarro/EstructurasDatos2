@@ -4,8 +4,6 @@
 ABB::ABB()
 {
 	this->raiz = NULL;
-	
-
 }
 
 ABB::~ABB()

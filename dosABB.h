@@ -1,27 +1,29 @@
 #pragma once
-# include "nodoA.h"
+# include "ABB.h"
 class dosABB
 {
-	nodoA* A;
-	nodoA* B;
+public:
+	ABB* A;
+	ABB* B;
 
-	bool identicos(nodoA*, nodoA*);
-	bool espejo(nodoA*, nodoA*);
-	void copiar(nodoA*, nodoA*&);
-	void copiarEspejo(nodoA*, nodoA*&);
-
+private:
 	dosABB();
 	~dosABB();
 
-	nodoA* getA();
-	void setA(nodoA*);
+	ABB* getA();
+	void setA(ABB*);
 
-	nodoA* getB();
-	void setB(nodoA*);
+	ABB* getB();
+	void setB(ABB*);
 
 	bool identicos();
 	bool espejo();
 	void copiar();
 	void copiarEspejo();
+
+	bool identicos(nodoA*, nodoA*);
+	bool espejo(nodoA*, nodoA*);
+	void copiar(nodoA*, nodoA*&);
+	void copiarEspejo(nodoA*, nodoA*&);
 };
 

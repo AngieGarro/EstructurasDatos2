@@ -53,39 +53,41 @@ dosABB::~dosABB()
 {
 }
 
-nodoA* dosABB::getA()
+ABB* dosABB::getA()
 {
     return this->A;
 }
 
-void dosABB::setA(nodoA* _ptr)
+void dosABB::setA(ABB* Ap)
 {
-    this->A = _ptr;
+    this->A = Ap;
 }
 
-nodoA* dosABB::getB()
+ABB* dosABB::getB()
 {
     return this->B;
 }
 
-void dosABB::setB(nodoA* _ptr)
+void dosABB::setB(ABB* Bp)
 {
-    this->B = _ptr;
+    this->B = Bp;
 }
+
+
 
 bool dosABB::identicos()
 {
-    //return identicos(A->getRaiz(), B->getRaiz());
+    return identicos(A->getRaiz(), B->getRaiz());
 }
 
 bool dosABB::espejo()
 {
-   // return espejo(A->getRaiz(), B->getRaiz());
+   return espejo(A->getRaiz(), B->getRaiz());
 }
 
 void dosABB::copiar()
 {
-   // copiar(A->getRaiz(), B->getRaiz());
+   copiar(A->getRaiz(), B->getRaiz());
 }
 
 void dosABB::copiarEspejo()

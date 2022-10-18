@@ -39,8 +39,13 @@ void dosABB::copiar(nodoA* pA, nodoA*& pB)
     }
 }
 
-void dosABB::copiarEspejo(nodoA*, nodoA*&)
+void dosABB::copiarEspejo(nodoA* AA, nodoA*& AB)
 {
+    if (AA != NULL) {
+        AB = new nodoA(AA->getDato());
+        copiarEspejo(AA->getIzq(), AB->getDer());
+        copiarEspejo(AA->getDer(), AB->getIzq());
+    }
 }
 
 dosABB::dosABB()
@@ -92,4 +97,5 @@ void dosABB::copiar()
 
 void dosABB::copiarEspejo()
 {
+    copiarEspejo(A->getRaiz(), B->getRaiz());
 }

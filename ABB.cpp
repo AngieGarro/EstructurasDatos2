@@ -29,7 +29,7 @@ bool ABB::esVacio()
 bool ABB::agregar(int _dato) //Agregar publico
 {
 	return agregar(_dato, raiz);
-	
+
 }
 
 bool ABB::remover(int _dato)
@@ -46,7 +46,7 @@ void ABB::preorden()
 		cout << "Fin" << endl;
 		cout << endl;
 	}
-	
+
 }
 
 void ABB::postorden()
@@ -130,7 +130,7 @@ int ABB::Cardinalidad()
 		Cardinalidad(raiz);
 		cout << endl;
 	}
-	
+
 }
 
 int ABB::CantidadHojas()
@@ -178,6 +178,17 @@ int ABB::SumaHojasPares()
 	return SumaHojasPares(getRaiz());
 }
 
+void ABB::OrdenInverso()
+{
+	if (esVacio())
+		cout << "El arbol esta vacio...";
+	else {
+		OrdenInverso(raiz);
+		cout << "Fin" << endl;
+		cout << endl;
+	}
+}
+
 //OPERACIONES TAREA 1
 int ABB::sumatoria()
 {
@@ -189,14 +200,14 @@ bool ABB::ArbLleno()
 	return ArbLleno(getRaiz());
 }
 
-bool ABB::ArbCompleto(int p,int n)
+bool ABB::ArbCompleto(int p, int n)
 {
-	return ArbCompleto(getRaiz(),p,n);
+	return ArbCompleto(getRaiz(), p, n);
 }
 
 int ABB::NivelNodos(int nivel)
 {
-	return NivelNodos(getRaiz(),nivel);
+	return NivelNodos(getRaiz(), nivel);
 }
 
 void ABB::VerNivelNodos(int N)
@@ -206,6 +217,12 @@ void ABB::VerNivelNodos(int N)
 
 void ABB::PodarArbol()
 {
+	if (esVacio())
+		cout << "El arbol esta vacio...";
+	else {
+		PodarArbol(getRaiz());
+		cout << endl;
+	}
 }
 
 
@@ -231,23 +248,23 @@ bool ABB::agregar(int _dato, nodoA*& A)
 			}
 		}
 	}
-	
+
 }
 
-bool ABB::remover(int _dato, nodoA*&A)
+bool ABB::remover(int _dato, nodoA*& A)
 {
-		if (A == NULL)
-			return false;
+	if (A == NULL)
+		return false;
+	else
+		if (A->getDato() == _dato) {
+			eliminarNodo(A);
+			return true;
+		}
 		else
-			if (A->getDato() == _dato) {
-				eliminarNodo(A);
-				return true;
-			}
+			if (_dato < A->getDato())
+				return remover(_dato, A->getIzq());
 			else
-				if (_dato < A->getDato())
-					return remover(_dato, A->getIzq());
-				else
-					return remover(_dato, A->getDer());
+				return remover(_dato, A->getDer());
 }
 
 void ABB::eliminarNodo(nodoA*& A)
@@ -283,7 +300,7 @@ void ABB::eliminarNodo(nodoA*& A)
 void ABB::preorden(nodoA* A)  //RID
 {
 	if (A != NULL) {
-		cout << A->getDato()<<"-";
+		cout << A->getDato() << "-";
 		preorden(A->getIzq());
 		preorden(A->getDer());
 	}
@@ -304,7 +321,7 @@ void ABB::enorden(nodoA* A) //IRD
 		enorden(A->getIzq());
 		cout << A->getDato() << "-";
 		enorden(A->getDer());
-		
+
 	}
 }
 
@@ -340,9 +357,10 @@ bool ABB::EsIntermedio(nodoA* A)
 	if (EsHoja(A)) {
 		return false;
 
-	}else{
-			return (A->getIzq() != NULL && A->getDer() != NULL);
-		}
+	}
+	else {
+		return (A->getIzq() != NULL && A->getDer() != NULL);
+	}
 }
 
 void ABB::desplegarIntermedios(nodoA* A)
@@ -363,7 +381,8 @@ bool ABB::EsPar(nodoA* A)
 {
 	if (A == NULL) {
 		return false;
-	}else{
+	}
+	else {
 		return(A->getDato() % 2 == 0);
 	}
 }
@@ -396,7 +415,7 @@ int ABB::Cardinalidad(nodoA* A)
 		return 0;
 	else
 		return 1 + Cardinalidad(A->getIzq()) + Cardinalidad(A->getDer());
-	
+
 }
 
 int ABB::CantidadHojas(nodoA* A)
@@ -457,11 +476,11 @@ bool ABB::NodosEntre1y99(nodoA* A)
 		}
 		else {
 			return true && NodosEntre1y99(A->getIzq()) && NodosEntre1y99(A->getDer());
-		}			
+		}
 	}
 	else {
 		return true;
-	}	
+	}
 }
 
 int ABB::altura(nodoA* A)
@@ -477,7 +496,7 @@ int ABB::buscarMenor(nodoA* A)
 	int menor;
 	while (A->getIzq() != NULL)
 		A = A->getIzq();
-		menor = A->getDato();
+	menor = A->getDato();
 	return menor;
 }
 
@@ -486,7 +505,7 @@ int ABB::buscarMayor(nodoA* A)
 	int mayor;
 	while (A->getDer() != NULL)
 		A = A->getDer();
-		mayor = A->getDato();
+	mayor = A->getDato();
 	return mayor;
 }
 
@@ -520,6 +539,15 @@ int ABB::SumaHojasPares(nodoA* A)
 	}
 }
 
+void ABB::OrdenInverso(nodoA* A)
+{
+	if (A != NULL) {
+		OrdenInverso(A->getDer());
+		cout << A->getDato() << "-";
+		OrdenInverso(A->getIzq());
+	}
+}
+
 //OPERACIONES TAREA 1
 // 
 //Sumar todos los valores de los nodos del árbol.
@@ -549,7 +577,7 @@ bool ABB::ArbLleno(nodoA* A)
 }
 
 //Determinar si un árbol es completo.
-bool ABB::ArbCompleto(nodoA* A, int p,int n)
+bool ABB::ArbCompleto(nodoA* A, int p, int n)
 {
 	if (A == nullptr) {
 		return true;
@@ -579,11 +607,15 @@ int ABB::NivelNodos(nodoA* A, int N)
 //Muestra los Nodos por nivel.
 void ABB::VerNivelNodos(nodoA* A, int N)
 {
+
 	if (A != NULL) {
-		if (N == 0) {
+
+		VerNivelNodos(A->getIzq(), N - 1);
+		VerNivelNodos(A->getDer(), N - 1);
+
+		if (N == 1) {
 			cout << A->getDato() << " - ";
-			VerNivelNodos(A->getIzq(), N - 1);
-			VerNivelNodos(A->getDer(), N - 1);
+
 		}
 	}
 }
@@ -591,25 +623,17 @@ void ABB::VerNivelNodos(nodoA* A, int N)
 //COMPLETAR IMPLEMENTACIÓN
 void ABB::PodarArbol(nodoA* A)
 {
-	while (A != NULL)
-	{
-		if (EsHoja(A) < A->getDato())
-			if (A->getIzq()->getDato() == EsHoja(A))
-			{
-				A->getIzq() = NULL;
-				break;
-			}
-			else
-				A = A->getIzq();
-		else
-			if (A->getDer()->getDato() == EsHoja(A))
-			{
-				A->getDer() = NULL;
-				break;
-			}
-			else
-				A = A->getDer();
-	}//fin while
+	if (A != NULL) {
+		if (EsHoja(A)) {
+			cout << "Eliminando :" << A->getDato() << ",";
+			remover(A->getDato());
+		}
+		else {
+			PodarArbol(A->getIzq());
+			PodarArbol(A->getDer());
+		}
+	}
+
 }
 
 

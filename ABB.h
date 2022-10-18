@@ -34,6 +34,7 @@ private:
 	int buscarMayor(nodoA*);
 	int CantidadNodosInternos(nodoA*);
 	int SumaHojasPares(nodoA*);
+	void OrdenInverso(nodoA*);
 
 	//Operaciones Tarea 1.
 	int sumatoria(nodoA*);
@@ -75,7 +76,7 @@ public:
 	int buscarMayor();
 	int CantidadNodosInternos();
 	int SumaHojasPares();
-
+	void OrdenInverso();
 
 	//Operaciones Tarea 1.
 	int sumatoria();

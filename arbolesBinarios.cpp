@@ -34,6 +34,106 @@ void removerDato(ABB*& A) {
 void VerNivel(ABB* A) {
     
 };
+void menuDosABB() {
+    int opc = 0;
+    ABB* A = new ABB();
+    ABB* B = new ABB();
+    do {
+        system("cls");
+        cout << "----------------OPERACIONES 2 ARBOLES-----------------\n";
+        cout << "______________________________________________________ \n";
+        cout << "(1) Agregar dato al arbol \n";
+        cout << "(0) Salir del menu \n";
+        cout << endl;
+        cout << "Ingrese su opcion->";
+        cin >> opc;
+        switch (opc) {
+        case 1: {
+            agregarDato(A);
+            A->enorden();
+            break;
+        }
+      }
+        system("pause");
+    } while (opc != 0);
+}
+void menuTarea1() {
+    int opc = 0;
+    ABB* A = new ABB();
+    do {
+        system("cls");
+        cout << "______________________________________________________ \n";
+        cout << "-------------OPERACIONES DE TAREA 1------------------- \n";
+        cout << "(1) Sumar todos los valores de los nodos \n";
+        cout << "(2) El arbol, es un arbol lleno? \n";
+        cout << "(3) El arbol, es un arbol Completo? \n";
+        cout << "(4) Visualizar todos los nodos de un nivel \n";
+        cout << "(5) Podar Arbol \n";
+        cout << "(6) Crear Arbol (Este Crea el arbol de la tarea) \n";
+        cout << "(0) Salir del menu \n";
+        cout << endl;
+        cout << "Ingrese su opcion->";
+        cin >> opc;
+        switch (opc) {
+        case 1: {
+            cout << "Suma de valores..." << endl;
+            cout << "La suma de los valores es: " << A->sumatoria() << endl;
+            break;
+        }
+        case 2: {
+            if (A->ArbLleno()) {
+                cout << "VERDADERO" << endl;
+            }
+            else {
+                cout << "FALSO" << endl;
+            }
+            break;
+        }
+        case 3: {
+            if (A->ArbLleno()) {
+                cout << "VERDADERO" << endl;
+            }
+            else {
+                cout << "FALSO" << endl;
+            }
+            break;
+        }
+        case 4: {
+            cout << "Ver los datos del nivel del arbol " << endl;
+            cout << "Digite el nivel: ";
+            int nivel;
+            cin >> nivel;
+            cout << "Los valores del nivel " << nivel << " del arbol son:" << endl;
+            A->VerNivelNodos(nivel);
+            break;
+        }
+        case 5: {
+            cout << "Podar arbol..." << endl;
+            A->PodarArbol();
+            A->enorden();
+            break;
+        }
+        case 6: {
+            cout << "Arbol Creado..." << endl;
+            A->agregar(15);
+            A->agregar(6);
+            A->agregar(3);
+            A->agregar(9);
+            A->agregar(1);
+            A->agregar(4);
+            A->agregar(7);
+            A->agregar(12);
+            A->agregar(20);
+            A->agregar(18);
+            A->agregar(17);
+            A->agregar(24);
+            break;
+           }
+        }
+        system("pause");
+    } while (opc != 0);
+}
+
 
 void menu() {
     int opc = 0;
@@ -61,13 +161,11 @@ void menu() {
         cout << "(17) Ver la altura del arbol \n";
         cout << "(18) Cantidad de nodos internos \n";
         cout << "(19) Suma de hojas pares \n";
+        cout << "(20) Opcion1 examen \n";
+        cout << "(21) Opcion2 examen \n";
         cout << "______________________________________________________ \n";
-        cout << "-------------OPERACIONES DE TAREA 1------------------- \n";
-        cout << "(22) Sumar todos los valores de los nodos \n";
-        cout << "(23) El arbol, es un |arbol lleno|? \n";
-        cout << "(24) El arbol, es un |arbol Completo|? \n";
-        cout << "(25) Visualizar todos los nodos de un nivel \n";
-        cout << "(26) Podar Arbol \n";
+        cout << "(98) Menu Tarea 1 \n";
+        cout << "(99) Menu para dos o mas arboles \n";
         cout << "(0) Salir del menu \n";
         cout << endl;
         cout << "Ingrese su opcion->";
@@ -126,7 +224,7 @@ void menu() {
         }
         case 11: {
             cout << "Cantidad nodos hojas..." << endl;
-            cout << "Cantidad de hojas es:"<< A->CantidadHojas();
+            cout << "Cantidad de hojas es:" << A->CantidadHojas();
             break;
         }
         case 12: {
@@ -176,51 +274,31 @@ void menu() {
             cout << "Suma hojas pares..." << endl;
             cout << "La suma es:" << A->SumaHojasPares();
             break;
-        }
-        //OPERACIONES DE LA TAREA
-        case 22: {
-            cout << "Suma de valores..." << endl;
-            cout << "La suma de los valores es:" << A->sumatoria();
+        } 
+        //QUIZ-01
+        case 20: {
+            cout << "Suma hojas pares..." << endl;
+            cout << "La suma es:" << A->SumaHojasPares();
             break;
         }
-        case 23: {
-            if (A->ArbLleno()) {
-                cout << "VERDADERO" << endl;
-            }
-            else {
-                cout << "FALSO" << endl;
-            }
+        case 21: {
+            cout << "Orden inverso es..." << endl;
+            A->OrdenInverso();
             break;
         }
-        case 24: {
-            if (A->ArbLleno()) {
-                cout << "VERDADERO" << endl;
-            }
-            else {
-                cout << "FALSO" << endl;
-            }
+        case 98: {
+           cout << "Opciones Tarea 1..." << endl;
+           menuTarea1();
+           break;
+               }
+        case 99: {
+            cout << "Opciones DosABB..." << endl;
+            menuDosABB();
             break;
         }
-        case 25: {
-            cout << "Ver los datos del nivel del arbol " << endl;
-            cout << "Digite el nivel: ";
-            int nivel;
-            cin >> nivel;
-            cout << "Los valores del " << nivel << " del arbol son:" << endl;
-            A->VerNivelNodos(nivel);
-            break;
         }
-        case 26: {
-            cout << "Podar arbol..." << endl;
-            A->PodarArbol(A);
-            A->enorden();
-            break;
-        }
-}
         system("pause");
     } while (opc != 0);
-    
-
 }
 
 

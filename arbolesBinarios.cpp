@@ -42,14 +42,32 @@ void menuDosABB() {
         system("cls");
         cout << "----------------OPERACIONES 2 ARBOLES-----------------\n";
         cout << "______________________________________________________ \n";
-        cout << "(1) Agregar dato al arbol \n";
+        cout << "(1) Comparar arboles identicos \n";
+        cout << "(2) Comparar arboles espejo \n";
+        cout << "(3) Crear copia arbol A \n";
+        cout << "(4) Crear copia espejo arbol A \n";
         cout << "(0) Salir del menu \n";
         cout << endl;
         cout << "Ingrese su opcion->";
         cin >> opc;
         switch (opc) {
         case 1: {
-            agregarDato(A);
+            
+            A->enorden();
+            break;
+        }
+        case 2: {
+
+            A->enorden();
+            break;
+        }
+        case 3: {
+
+            A->enorden();
+            break;
+        }
+        case 4: {
+
             A->enorden();
             break;
         }

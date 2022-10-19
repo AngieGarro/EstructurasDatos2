@@ -189,6 +189,16 @@ void ABB::OrdenInverso()
 	}
 }
 
+int ABB::CantidadNHijos()
+{
+	return 0;
+}
+
+int ABB::SumaMultiplo(int c)
+{
+	return SumaMultiplo(getRaiz(),c);
+}
+
 //OPERACIONES TAREA 1
 int ABB::sumatoria()
 {
@@ -351,7 +361,6 @@ void ABB::desplegarHojas(nodoA* A)
 
 }
 
-//Arreglar implementación
 bool ABB::EsIntermedio(nodoA* A)
 {
 	if (EsHoja(A)) {
@@ -375,16 +384,17 @@ void ABB::desplegarIntermedios(nodoA* A)
 		}
 	}
 }
-//
 
 bool ABB::EsPar(nodoA* A)
 {
-	if (A == NULL) {
-		return false;
+	if (A != NULL) {
+		if (A->getDato() % 2 != 0)
+			return false;
+		else
+			return true && EsPar(A->getIzq()) && EsPar(A->getDer());
 	}
-	else {
-		return(A->getDato() % 2 == 0);
-	}
+	else
+		return true;
 }
 
 void ABB::desplegarPares(nodoA* A)
@@ -528,14 +538,13 @@ int ABB::CantidadNodosInternos(nodoA* A)
 	}
 }
 
-//Arreglar implementación
 int ABB::SumaHojasPares(nodoA* A)
 {
-	if (A == 0) {
-		return 0;
-	}if (EsHoja(A) && EsPar(A)) {
+	if (A != NULL) {
+		if (EsHoja(A) && EsPar(A)) {
 
-		return A->getDato() + SumaHojasPares(A->getIzq()) + SumaHojasPares(A->getDer());
+			return A->getDato() + SumaHojasPares(A->getIzq()) + SumaHojasPares(A->getDer());
+		}
 	}
 }
 
@@ -546,6 +555,29 @@ void ABB::OrdenInverso(nodoA* A)
 		cout << A->getDato() << "-";
 		OrdenInverso(A->getIzq());
 	}
+}
+
+int ABB::CantidadNHijos(nodoA*)
+{
+	return 0;
+}
+
+int ABB::SumaMultiplo(nodoA* A, int c)
+{
+	int s;
+	c = 3;
+	if (A == NULL) {
+		s = 0;
+	}
+	else {
+		if ((A->getDato()) % c == 0) {
+			s = A->getDato() + SumaMultiplo(A->getDer(), c) + SumaMultiplo(A->getIzq(), c);
+		}
+		else {
+			s = SumaMultiplo(A->getDer(), c) + SumaMultiplo(A->getIzq(), c);
+		}
+	}
+	return s;
 }
 
 //OPERACIONES TAREA 1

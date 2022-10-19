@@ -35,6 +35,8 @@ private:
 	int CantidadNodosInternos(nodoA*);
 	int SumaHojasPares(nodoA*);
 	void OrdenInverso(nodoA*);
+	int CantidadNHijos(nodoA*);
+	int SumaMultiplo(nodoA*,int);
 
 	//Operaciones Tarea 1.
 	int sumatoria(nodoA*);
@@ -77,6 +79,8 @@ public:
 	int CantidadNodosInternos();
 	int SumaHojasPares();
 	void OrdenInverso();
+	int CantidadNHijos();
+	int SumaMultiplo(int);
 
 	//Operaciones Tarea 1.
 	int sumatoria();

@@ -34,6 +34,43 @@ void removerDato(ABB*& A) {
 void VerNivel(ABB* A) {
     
 };
+
+//MENU ARBOLES AVL
+void menuAVL() {
+    int opc = 0;
+    ABB* A = new ABB();
+    ABB* B = new ABB();
+
+    do {
+        system("cls");
+        cout << "--------------OPERACIONES ARBOLES AVL--------------\n";
+        cout << "___________________ARBOLES______________________\n";
+        cout << "(1) OPERACIONES ARBOLES BINARIOS DE BUSQUEDAS \n";
+        cout << "(0) Salir del menu \n";
+        cout << endl;
+        cout << "Ingrese su opcion->";
+        cin >> opc;
+        switch (opc) {
+        case 1: {
+            cout << "Opciones ABB Y DosABB..." << endl;
+            break;
+        }
+        case 2: {
+            break;
+        }
+        case 3: {
+            break;
+        }
+        case 4: {
+            break;
+        }
+        }
+        system("pause");
+
+    } while (opc != 0);
+}
+
+//MENU DOS ARBOLES 
 void menuDosABB() {
     int opc = 0;
     ABB* A = new ABB();
@@ -75,6 +112,8 @@ void menuDosABB() {
         system("pause");
     } while (opc != 0);
 }
+
+//MENU TAREA 1
 void menuTarea1() {
     int opc = 0;
     ABB* A = new ABB();
@@ -152,7 +191,7 @@ void menuTarea1() {
     } while (opc != 0);
 }
 
-
+//MENU PRINCIPAL
 void menu() {
     int opc = 0;
     ABB* A = new ABB();
@@ -179,8 +218,6 @@ void menu() {
         cout << "(17) Ver la altura del arbol \n";
         cout << "(18) Cantidad de nodos internos \n";
         cout << "(19) Suma de hojas pares \n";
-        cout << "(20) Opcion1 examen \n";
-        cout << "(21) Opcion2 examen \n";
         cout << "______________________________________________________ \n";
         cout << "(98) Menu Tarea 1 \n";
         cout << "(99) Menu para dos o mas arboles \n";
@@ -304,6 +341,11 @@ void menu() {
             A->OrdenInverso();
             break;
         }
+        case 97: {
+            cout << "Orden inverso es..." << endl;
+            A->OrdenInverso();
+            break;
+        }
         case 98: {
            cout << "Opciones Tarea 1..." << endl;
            menuTarea1();
@@ -323,5 +365,4 @@ void menu() {
 int main()
 {
     menu();
-
 }

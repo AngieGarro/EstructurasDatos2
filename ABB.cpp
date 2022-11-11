@@ -86,6 +86,18 @@ void ABB::desplegarHojas()
 
 }
 
+void ABB::desplegarHojasMasMenos()
+{
+	if (esVacio())
+		cout << "El arbol esta vacio...";
+	else {
+		cout << "Las hojas del arbol son: ";
+		desplegarHojasMasMenos(getRaiz());
+		cout << "fin";
+		cout << endl;
+	}
+}
+
 void ABB::desplegarIntermedios()
 {
 	if (esVacio())
@@ -197,6 +209,11 @@ int ABB::CantidadNHijos()
 int ABB::SumaMultiplo(int c)
 {
 	return SumaMultiplo(getRaiz(),c);
+}
+
+void ABB::NivelDerIzq(int N)
+{
+	NivelDerIzq(getRaiz(), N);
 }
 
 //OPERACIONES TAREA 1
@@ -347,6 +364,16 @@ bool ABB::EsHoja(nodoA* A)
 	}
 }
 
+bool ABB::EsHojaMasMenos(nodoA* A)
+{
+	if (A == NULL) {
+		return false;
+	}
+	else {
+		return (A->getIzq() == NULL && A->getDer() == NULL);
+	}
+}
+
 void ABB::desplegarHojas(nodoA* A)
 {
 	if (A != NULL) {
@@ -359,6 +386,19 @@ void ABB::desplegarHojas(nodoA* A)
 		}
 	}
 
+}
+
+void ABB::desplegarHojasMasMenos(nodoA* A)
+{
+	if (A != NULL) {
+		if (EsHoja(A)) {
+			cout << A->getDato() << "-";
+		}
+		else {
+			desplegarHojas(A->getDer());
+			desplegarHojas(A->getIzq());
+		}
+	}
 }
 
 bool ABB::EsIntermedio(nodoA* A)
@@ -578,6 +618,20 @@ int ABB::SumaMultiplo(nodoA* A, int c)
 		}
 	}
 	return s;
+}
+
+void ABB::NivelDerIzq(nodoA* A, int N)
+{
+	if (A != NULL) {
+
+		NivelDerIzq(A->getDer(), N + 1);
+		NivelDerIzq(A->getIzq(), N + 1);
+
+		if (N == 1) {
+			cout << A->getDato() << " - ";
+
+		}
+	}
 }
 
 //OPERACIONES TAREA 1

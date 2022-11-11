@@ -16,7 +16,9 @@ private:
 
 	//Operaciones practica 1
 	bool EsHoja(nodoA*);
+	bool EsHojaMasMenos(nodoA*);
 	void desplegarHojas(nodoA*);
+	void desplegarHojasMasMenos(nodoA*);
 
 	bool EsIntermedio(nodoA*);
 	void desplegarIntermedios(nodoA*);
@@ -37,6 +39,7 @@ private:
 	void OrdenInverso(nodoA*);
 	int CantidadNHijos(nodoA*);
 	int SumaMultiplo(nodoA*,int);
+	void NivelDerIzq(nodoA*, int);
 
 	//Operaciones Tarea 1.
 	int sumatoria(nodoA*);
@@ -64,6 +67,7 @@ public:
 	void enorden();
 	//Operaciones practica 1.
 	void desplegarHojas();
+	void desplegarHojasMasMenos();
 	void desplegarIntermedios();
 	void desplegarPares();
 	void descendente();
@@ -81,6 +85,7 @@ public:
 	void OrdenInverso();
 	int CantidadNHijos();
 	int SumaMultiplo(int);
+	void NivelDerIzq(int);
 
 	//Operaciones Tarea 1.
 	int sumatoria();
